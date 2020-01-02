@@ -46,6 +46,7 @@
             this.Filefo.Size = new System.Drawing.Size(41, 15);
             this.Filefo.TabIndex = 0;
             this.Filefo.Text = "label1";
+            this.Filefo.Click += new System.EventHandler(this.Filefo_Click);
             // 
             // Filefotext
             // 

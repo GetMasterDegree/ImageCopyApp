@@ -93,8 +93,8 @@ namespace ImageCopyApp
             DirectoryInfo dirfor;
             DirectoryInfo dirto;
 
-            Filefotext.Text = "c:\\Users\\Daniel\\Downloads\\abc";
-            Filetotext.Text = "d:\\";
+            //Filefotext.Text = "c:\\Users\\Daniel\\Downloads\\abc";
+            //Filetotext.Text = "d:\\";
 
             try
             {
@@ -161,9 +161,11 @@ namespace ImageCopyApp
                 for(int j = 0; j < filefordata.Length; j++)
                 {
 
-                        filefordata[j].CopyTo(dirtime[i].FullName + "\\" + filefordata[j]);
+                        filefordata[j].CopyTo(dirtime[i].FullName + "\\" + filefordata[j], true);
                 }
             }
+
+            SuccessCopyMessage();
         }
 
         //資料依時間由近到遠排序
@@ -196,6 +198,16 @@ namespace ImageCopyApp
             DirectoryInfo newdir = Directory.CreateDirectory(dirpath);
             
             return newdir;
+        }
+
+        private void Filefo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SuccessCopyMessage()
+        {
+            MessageBox.Show("完成!!!");
         }
     }
 }
