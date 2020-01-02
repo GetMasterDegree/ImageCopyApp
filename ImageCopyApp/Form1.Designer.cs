@@ -41,42 +41,47 @@
             // Filefo
             // 
             this.Filefo.AutoSize = true;
-            this.Filefo.Location = new System.Drawing.Point(185, 180);
+            this.Filefo.Location = new System.Drawing.Point(139, 144);
+            this.Filefo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Filefo.Name = "Filefo";
-            this.Filefo.Size = new System.Drawing.Size(41, 15);
+            this.Filefo.Size = new System.Drawing.Size(33, 12);
             this.Filefo.TabIndex = 0;
             this.Filefo.Text = "label1";
-            this.Filefo.Click += new System.EventHandler(this.Filefo_Click);
             // 
             // Filefotext
             // 
-            this.Filefotext.Location = new System.Drawing.Point(337, 170);
+            this.Filefotext.Location = new System.Drawing.Point(253, 136);
+            this.Filefotext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Filefotext.Name = "Filefotext";
-            this.Filefotext.Size = new System.Drawing.Size(224, 25);
+            this.Filefotext.Size = new System.Drawing.Size(169, 22);
             this.Filefotext.TabIndex = 1;
             this.Filefotext.TextChanged += new System.EventHandler(this.Filefotext_TextChanged);
             // 
             // Filetotext
             // 
-            this.Filetotext.Location = new System.Drawing.Point(337, 233);
+            this.Filetotext.Location = new System.Drawing.Point(253, 186);
+            this.Filetotext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Filetotext.Name = "Filetotext";
-            this.Filetotext.Size = new System.Drawing.Size(224, 25);
+            this.Filetotext.Size = new System.Drawing.Size(169, 22);
             this.Filetotext.TabIndex = 2;
+            this.Filetotext.TextChanged += new System.EventHandler(this.Filetotext_TextChanged);
             // 
             // Fileto
             // 
             this.Fileto.AutoSize = true;
-            this.Fileto.Location = new System.Drawing.Point(185, 243);
+            this.Fileto.Location = new System.Drawing.Point(139, 194);
+            this.Fileto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Fileto.Name = "Fileto";
-            this.Fileto.Size = new System.Drawing.Size(41, 15);
+            this.Fileto.Size = new System.Drawing.Size(33, 12);
             this.Fileto.TabIndex = 3;
             this.Fileto.Text = "label2";
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(188, 326);
+            this.Submit.Location = new System.Drawing.Point(141, 261);
+            this.Submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(75, 23);
+            this.Submit.Size = new System.Drawing.Size(56, 18);
             this.Submit.TabIndex = 4;
             this.Submit.Text = "button1";
             this.Submit.UseVisualStyleBackColor = true;
@@ -84,9 +89,10 @@
             // 
             // Reset
             // 
-            this.Reset.Location = new System.Drawing.Point(337, 326);
+            this.Reset.Location = new System.Drawing.Point(253, 261);
+            this.Reset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(75, 23);
+            this.Reset.Size = new System.Drawing.Size(56, 18);
             this.Reset.TabIndex = 5;
             this.Reset.Text = "button2";
             this.Reset.UseVisualStyleBackColor = true;
@@ -94,9 +100,10 @@
             // 
             // Endexit
             // 
-            this.Endexit.Location = new System.Drawing.Point(486, 326);
+            this.Endexit.Location = new System.Drawing.Point(364, 261);
+            this.Endexit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Endexit.Name = "Endexit";
-            this.Endexit.Size = new System.Drawing.Size(75, 23);
+            this.Endexit.Size = new System.Drawing.Size(56, 18);
             this.Endexit.TabIndex = 6;
             this.Endexit.Text = "button3";
             this.Endexit.UseVisualStyleBackColor = true;
@@ -105,17 +112,18 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(185, 67);
+            this.lblTitle.Location = new System.Drawing.Point(139, 54);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(41, 15);
+            this.lblTitle.Size = new System.Drawing.Size(33, 12);
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "label1";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 360);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.Endexit);
             this.Controls.Add(this.Reset);
@@ -124,6 +132,7 @@
             this.Controls.Add(this.Filetotext);
             this.Controls.Add(this.Filefotext);
             this.Controls.Add(this.Filefo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

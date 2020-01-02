@@ -93,36 +93,41 @@ namespace ImageCopyApp
             DirectoryInfo dirfor;
             DirectoryInfo dirto;
 
-            //Filefotext.Text = "c:\\Users\\Daniel\\Downloads\\abc";
+            //Filefotext.Text = "c:\\Users\\SIMN\\Downloads\\abc";
             //Filetotext.Text = "d:\\";
 
+            // 確認「檔案位置」有無填寫
             try
             {
                 dirfor = new DirectoryInfo(Filefotext.Text);
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("請確實填寫路徑!!!");
+                MessageBox.Show("未填寫'檔案位置'，請確實填寫路徑!!!");
                 return;
             }
 
+            // 確認「檔案位置」有無該資料夾
             if (!dirfor.Exists)
             {
-                MessageBox.Show("請確實填寫路徑!!!");
+                MessageBox.Show("'檔案位置'路徑不存在!!!");
                 return;
             }
 
+            // 確認「存放位置」有無填寫
             try
             {
                 dirto = new DirectoryInfo(Filetotext.Text);
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("目的路徑不存在!!!");
-                if (MessageBox.Show("請問是否在桌面創建資料夾?", "資料自動轉存", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
+                    MessageBox.Show("未填寫'存放位置'路徑!!!");
+                if (MessageBox.Show("請問是否在C槽創建資料夾?", "資料自動轉存", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.OK)
                 {
                     dirfor = new DirectoryInfo(Filefotext.Text);
-                    dirto = new DirectoryInfo("C:\\Users\\Daniel\\Desktop");
+                    Filetotext.Text = "c:\\";
+                    //dirto = new DirectoryInfo("C:\\");
+                    dirto = new DirectoryInfo(Filetotext.Text);
                     DataCopyApp(dirfor, dirto);
                     return;
                 }
@@ -133,7 +138,14 @@ namespace ImageCopyApp
                 }
             }
 
-            if(Filefotext.Text != null && Filetotext.Text != null)
+            // 確認「存放位置」有無該資料夾
+            if (!dirto.Exists)
+            {
+                MessageBox.Show("該路徑不存在!!!");
+                return;
+            }
+
+            if (Filefotext.Text != null && Filetotext.Text != null)
             {
                 dirfor = new DirectoryInfo(Filefotext.Text);
                 dirto = new DirectoryInfo(Filetotext.Text);
@@ -149,23 +161,24 @@ namespace ImageCopyApp
             //將資料時間存入陣列
             for(int i = 0; i < filefordata.Length; i++)
             {
-                filefortime[i] = filefordata[i].CreationTime.Date;
+                filefortime[i] = filefordata[i].CreationTime.Date;//讀取資料夾的建立日期和時間!!!!
             }
             //將資料依時間排序
-            filefortime = DateTimeBySort(filefortime);
+            filefortime = DateTimeBySort(filefortime);//[資料依時間由近到遠排序]找出最新的時間
             DirectoryInfo[] dirtime = new DirectoryInfo[filefortime.Length];
 
-            for (int i = 0; i < filefortime.Length; i++)
-            {
-                dirtime[i] = Createdir(dirtodata, filefortime[i]);
-                for(int j = 0; j < filefordata.Length; j++)
+            //for (int i = 0; i < filefortime.Length; i++)
+            for (int i = 0; i < 1; i++)
                 {
-
-                        filefordata[j].CopyTo(dirtime[i].FullName + "\\" + filefordata[j], true);
+                dirtime[i] = Createdir(dirtodata, filefortime[i]);//[創建新資料夾]建一次就可以了
+                for (int j = 0; j < filefordata.Length; j++)
+                {
+            
+                        filefordata[j].CopyTo(dirtime[i].FullName + "\\" + filefordata[j],true);
                 }
             }
 
-            SuccessCopyMessage();
+            MessageBox.Show("搬移完成");
         }
 
         //資料依時間由近到遠排序
@@ -200,14 +213,9 @@ namespace ImageCopyApp
             return newdir;
         }
 
-        private void Filefo_Click(object sender, EventArgs e)
+        private void Filetotext_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void SuccessCopyMessage()
-        {
-            MessageBox.Show("完成!!!");
         }
     }
 }
